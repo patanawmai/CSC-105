@@ -18,12 +18,13 @@ public class bullet extends Actor
     }
     public void act() 
     {
-     
+       //Greenfoot.playSound("PaddleOut.wav");
        Move();
        Remove();// Add your action code here.
     }    
     public void Move(){
         setLocation(getX(),getY()-spd);
+        
     }
     public void Remove(){
         if(isAtEdge()){

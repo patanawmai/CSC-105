@@ -19,11 +19,18 @@ public class MainMenu extends World
  
          super(600, 600, 1); 
           addObject( new name(),300,100);
-          addObject( new  easy(),300,300);
-          addObject( new  medium(),300,400);
-          addObject( new hard(),300,500);
+          addObject( new  easy(),300,280);
+          addObject( new  medium(),300,360);
+          addObject( new hard(),300,440);
+          addObject( new how(),300,520);
+          
+          sound();
          
          int x=0;
+    }
+    
+    public void sound(){
+        Greenfoot.playSound("Intro.wav");
     }
    
 }
