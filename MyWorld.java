@@ -48,8 +48,8 @@ public class MyWorld extends World
  
     public void Timer(){
         if(time/60==60&&count==0){
-            //x.go = true;
-            Greenfoot.setWorld(new win());
+            x.go = true;
+            //Greenfoot.setWorld(new win());
     }
     else{
         if(time/60!=60){

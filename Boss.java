@@ -14,11 +14,12 @@ public class Boss extends Enemy
      */
     GreenfootImage b = new GreenfootImage("boss.png");
     public Boss(){
-        super(9,10,20);//5 10 20
-          setImage(b);
+        super(9,10,40);//5 10 20 //20
+          //setImage(b);
     }
        public void act() 
     {
+        //gameover();
         getWorld().showText("Boss's Hp : " + hp,70,40);
       
             hit();
@@ -33,5 +34,9 @@ public class Boss extends Enemy
 
         count++;
     }    
-
+    /*public void gameover(){
+             if(isTouching(ship.class)){  //isAtEdge()
+            Greenfoot.setWorld(new GameO());
+            }
+        }*/
 }

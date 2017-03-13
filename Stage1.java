@@ -48,7 +48,7 @@ public class Stage1 extends World
     public void Timer(){
         if(timme/60==60&&MyWorld.count==0){
             //x.go = true;
-            Greenfoot.setWorld(new win());
+            Greenfoot.setWorld(new Stage2());
     }
     else{
         if(timme/60!=60){

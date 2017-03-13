@@ -23,9 +23,16 @@ public class Stage2 extends World
           MyWorld.count=0;
           MyWorld.score =0;
          addObject(new Boss(),getWidth()/2,0);
+         
     }
     public void act(){
          showText("Your score : "+MyWorld.score,70,580);
          showText("Level : "+3,50,20);
+         End();
+    }
+    public void End(){
+         if(getObjects(Boss.class).isEmpty()){
+           Greenfoot.setWorld(new win());
+    }
     }
 }

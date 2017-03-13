@@ -24,16 +24,17 @@ public class ship extends Actor
     }
     public void act() 
     {
+        gameover();
         if(go){
             if(con){
                 setLocation(512,600); 
             }
             con=false;
             setLocation(getX(),getY()-10); 
-            /*if(isAtEdge()){
+            if(isAtEdge()){
                 Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
                 go=false;
-            }*/
+            }
         }
         Move();
         //shipone();
@@ -81,5 +82,10 @@ public void Semi(){
     }
     time++;
 }
+public void gameover(){
+             if(isTouching(Boss.class)){  //isAtEdge()
+            Greenfoot.setWorld(new GameO());
+            }
+        }
 }
 
