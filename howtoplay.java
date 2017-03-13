@@ -18,5 +18,6 @@ public class howtoplay extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 600, 1); 
        addObject( new howto(),300,280);
+       addObject(new Restart(),20,580);
     }
 }
