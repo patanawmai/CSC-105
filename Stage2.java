@@ -21,7 +21,7 @@ public class Stage2 extends World
          addObject(new ship(),300,550);
          addObject(new Restart(),550,50);
           MyWorld.count=0;
-          MyWorld.score =0;
+         // MyWorld.score =0;
          addObject(new Boss(),getWidth()/2,0);
          
     }
