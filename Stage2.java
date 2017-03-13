@@ -19,6 +19,7 @@ public class Stage2 extends World
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
              super(600, 600, 1); 
          addObject(new ship(),300,550);
+         addObject(new Restart(),550,50);
           MyWorld.count=0;
           MyWorld.score =0;
          addObject(new Boss(),getWidth()/2,0);

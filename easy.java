@@ -15,7 +15,7 @@ public class easy extends Actor
     public void act() 
     {
         if(Greenfoot.mouseClicked(this)){
-        Greenfoot.setWorld(new MyWorld(MainMenu.x));
+        Greenfoot.setWorld(new MyWorld(2,10,1));
     }
     }    
 }

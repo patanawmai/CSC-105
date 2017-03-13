@@ -18,25 +18,40 @@ public class ship extends Actor
     boolean agn = false;
     boolean con= true;
     boolean go = false;
+    
     public ship(){
-   
+      
     }
     public void act() 
     {
         if(go){
             if(con){
-                setLocation(512,700); 
+                setLocation(512,600); 
             }
             con=false;
             setLocation(getX(),getY()-10); 
-            if(isAtEdge()){
-                Greenfoot.setWorld(new Stage2()); //ไปด่านอื่น
+            /*if(isAtEdge()){
+                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
                 go=false;
-            }
+            }*/
         }
         Move();
+        //shipone();
+        //shiptwo();
         // Add your action code here.
     }  
+   /* public void shipone(){
+        if(isAtEdge()){
+                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
+                go=false;
+    }
+}
+ public void shiptwo(){
+        if(isAtEdge()){
+                Greenfoot.setWorld(new Stage2()); //ไปด่านอื่น
+                go=false;
+    }
+}*/
     public void Move(){
         if(con){
         if(Greenfoot.isKeyDown("right")){
@@ -67,3 +82,4 @@ public void Semi(){
     time++;
 }
 }
+

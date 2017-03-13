@@ -17,7 +17,7 @@ public class Enemy extends Actor
      int hp;
     int count = 0;
       public Enemy(){
-      this(2,10,1); //2 50
+      this(2,40,1); //2 50
     }
     public Enemy(int spd,int dwn,int hp){
         this.spd = spd;
@@ -57,13 +57,13 @@ public class Enemy extends Actor
         }
         if(hp<=0){
                 getWorld().removeObject(this);
-            MyWorld.count--;
+           MyWorld.count--;
            MyWorld.score++;
            }
           
         }
         public void gameover(){
-             if(isAtEdge()){
+             if(isAtEdge()){  //isAtEdge()
             Greenfoot.setWorld(new GameO());
             }
         }

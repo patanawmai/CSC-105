@@ -16,13 +16,18 @@ public class MyWorld extends World
     static int count;
      static int score;
      static int time  ;
-     int le;
+     boolean go = false;
      ship x ;
-    public MyWorld(int le)
+     int a;
+     int b;
+     int c;
+    public MyWorld(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
          super(600, 600, 1); 
-         this.le = le;
+         this.a= a;
+         this.b=b;
+         this.c=c;
          addObject(x = new ship(),300,550);
          addObject(new Restart(),550,50);
          count=0;
@@ -38,11 +43,13 @@ public class MyWorld extends World
         if(count==0&&time/60!=60){
             addEn();
         }
-    
-    }
+     
+}
+ 
     public void Timer(){
         if(time/60==60&&count==0){
-            x.go = true;
+            //x.go = true;
+            Greenfoot.setWorld(new win());
     }
     else{
         if(time/60!=60){
@@ -52,9 +59,9 @@ public class MyWorld extends World
     }
     }
     public  void addEn(){
-             for(int i=1;i<=5;i++){
-             for(int k =1;k<=5;k++){
-                 addObject(new Enemy(),i*70,k*30);
+             for(int i=1;i<=4;i++){
+             for(int k =1;k<=4;k++){
+                 addObject(new Enemy(a,b,c),i*70,k*30);
                  count++;
                 }
             }

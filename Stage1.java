@@ -13,55 +13,57 @@ public class Stage1 extends World
      * Constructor for objects of class Stage1.
      * 
      */
-     static int count;
-      static int score;
-     static int time  ;
-     int le;
+      //static int counnt;
+     static int timme  ;
+     boolean go = false;
      ship x ;
-    public Stage1(int le)
+     int a;
+     int b;
+     int c;
+    public Stage1(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 600, 1);
-        this.le = le;
+         super(600, 600, 1); 
+         this.a= a;
+         this.b=b;
+         this.c=c;
          addObject(x = new ship(),300,550);
          addObject(new Restart(),550,50);
-         count=0;
-         score=0;
-         time=0;
+        // counnt=0;
+        
+         timme=0;
          addEn();
     }
-     public void act(){
-         showText("Your score : "+MyWorld.score,70,580);
-         showText("Level : "+2,50,20);
-          showText("Time : "+(60-(time/60)),50,560);
-            Timer();
-        if(count==0&&time/60!=60){
+    public void act(){
+           showText("Your score : "+MyWorld.score,70,590);
+             showText("Time : "+(60-(timme/60)),50,570);
+                showText("Level : "+1,50,20);
+             Timer();
+        if(MyWorld.count==0&&timme/60!=60){
             addEn();
         }
-           if(getObjects(Enemy.class).isEmpty()){
-            Greenfoot.setWorld(new GameO());
-            }
-    }
+     
+}
+ 
     public void Timer(){
-        if(time/60==60&&count==0){
-            x.go = true;
+        if(timme/60==60&&MyWorld.count==0){
+            //x.go = true;
+            Greenfoot.setWorld(new win());
     }
     else{
-        if(time/60!=60){
-            time++;  
+        if(timme/60!=60){
+            timme++;  
         }
           
     }
     }
     public  void addEn(){
-            
-            for(int i=1;i<=5;i++){
+             for(int i=1;i<=5;i++){
              for(int k =1;k<=5;k++){
-                 addObject(new Enemy(),i*70,k*30);
-                 count++;
+                 addObject(new Enemy(a,b,c),i*70,k*30);
+                 MyWorld.count++;
                 }
             }
     }
-       
-    }
-
+     
+}
