@@ -29,7 +29,8 @@ public class MyWorld extends World
          this.b=b;
          this.c=c;
          addObject(x = new ship(),300,550);
-         addObject(new Restart(),550,50);
+         addObject(new Restart(),580,20);
+         addObject(new re1(),580,50);
          count=0;
          score=0;
          time=0;

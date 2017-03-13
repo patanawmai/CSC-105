@@ -14,7 +14,7 @@ public class Boss extends Enemy
      */
     GreenfootImage b = new GreenfootImage("boss.png");
     public Boss(){
-        super(9,10,45);//5 10 20 //20hp
+        super(9,20,45);//5 10 20 //20hp
           //setImage(b);
     }
        public void act() 

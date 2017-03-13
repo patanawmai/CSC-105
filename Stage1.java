@@ -28,7 +28,8 @@ public class Stage1 extends World
          this.b=b;
          this.c=c;
          addObject(x = new ship(),300,550);
-         addObject(new Restart(),550,50);
+         addObject(new Restart(),580,20);
+         addObject(new re2(),580,50);
         // counnt=0;
         
          timme=0;
@@ -37,7 +38,7 @@ public class Stage1 extends World
     public void act(){
            showText("Your score : "+MyWorld.score,70,590);
              showText("Time : "+(60-(timme/60)),50,570);
-                showText("Level : "+1,50,20);
+                showText("Level : "+2,50,20);
              Timer();
         if(MyWorld.count==0&&timme/60!=60){
             addEn();
