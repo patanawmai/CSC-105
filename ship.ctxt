@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=ship
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ship\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=ship()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=
+comment3.target=void\ Move()
+comment3.text=\ public\ void\ shipone(){\r\n\ \ \ \ \ \ \ \ if(isAtEdge()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Greenfoot.setWorld(new\ Stage1(2,30,1));\ //\u0E44\u0E1B\u0E14\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ go\=false;\r\n\ \ \ \ }\r\n}\r\n\ public\ void\ shiptwo(){\r\n\ \ \ \ \ \ \ \ if(isAtEdge()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Greenfoot.setWorld(new\ Stage2());\ //\u0E44\u0E1B\u0E14\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ go\=false;\r\n\ \ \ \ }\r\n}
+comment4.params=
+comment4.target=void\ Semi()
+comment5.params=
+comment5.target=void\ gameover()
+numComments=6
