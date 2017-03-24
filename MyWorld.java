@@ -44,11 +44,11 @@ public class MyWorld extends World
                 showText("Level : "+1,50,20);
              Timer();
         
-        if(getObjects(Enemy.class).isEmpty()){
+        /*if(getObjects(Enemy.class).isEmpty()){
             
             addEn();
             
-        }
+        }*/
         
      
 }
@@ -56,13 +56,18 @@ public class MyWorld extends World
     public void Timer(){
         if(time/60==60&&count==0){
             x.go = true;
+            
             //Greenfoot.setWorld(new win());
     }
     else{
         if(time/60!=60){
             time++;  
         }
-        
+         if(getObjects(Enemy.class).isEmpty()){
+            
+            addEn();
+            
+        }
         if(k>=90){
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);

@@ -43,7 +43,11 @@ public class Stage1 extends World
              showText("Time : "+(60-(timme/60)),50,570);
                 showText("Level : "+2,50,20);
              Timer();
+             if(getObjects(Enemy.class).isEmpty()){
             
+            addEn();
+            
+        }
         
      
 }
@@ -57,11 +61,11 @@ public class Stage1 extends World
         if(timme/60!=60){
             timme++;  
         }
-        if(g>=620){
+        /*if(g>=620){
             
             addEn();
           g=0;  
-        }
+        }*/
         if(k>=90){
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
@@ -69,14 +73,14 @@ public class Stage1 extends World
             k=0;
         }
         k++;
-        g++;
+        //g++;
         
     }
     }
 
     public  void addEn(){
              for(int i=1;i<=5;i++){
-             for(int k =1;k<=5;k++){
+             for(int k =1;k<=2;k++){
                  addObject(new Enemy(a,b,c),i*70,k*30);
                  MyWorld.count++;
                 }
