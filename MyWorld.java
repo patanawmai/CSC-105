@@ -21,6 +21,7 @@ public class MyWorld extends World
      int a;
      int b;
      int c;
+     int k;
     public MyWorld(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -35,15 +36,20 @@ public class MyWorld extends World
          score=0;
          time=0;
          addEn();
+         k=60;
     }
     public void act(){
            showText("Your score : "+score,70,590);
              showText("Time : "+(60-(time/60)),50,570);
                 showText("Level : "+1,50,20);
              Timer();
-        if(count==0&&time/60!=60){
+        
+        if(getObjects(Enemy.class).isEmpty()){
+            
             addEn();
+            
         }
+        
      
 }
  
@@ -56,8 +62,16 @@ public class MyWorld extends World
         if(time/60!=60){
             time++;  
         }
-          
+        
+        if(k>=90){
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            k=0;
+        }
+        k++;
     }
+
     }
     public  void addEn(){
              for(int i=1;i<=4;i++){
