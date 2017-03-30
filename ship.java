@@ -18,6 +18,8 @@ public class ship extends Actor
     boolean agn = false;
     boolean con= true;
     boolean go = false;
+    int x=1;
+    public static int shipLife;
     
     public ship(){
       
@@ -32,11 +34,13 @@ public class ship extends Actor
             con=false;
             setLocation(getX(),getY()-10); 
             if(isAtEdge()){
-                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
+                Greenfoot.setWorld(new StageN(2,30,1)); //ไปด่านอื่น
                 go=false;
             }
         }
         Move();
+        
+        checkUlt();
         //shipone();
         //shiptwo();
         // Add your action code here.
@@ -68,12 +72,30 @@ public class ship extends Actor
             Semi();
         
     }
+    
+    
+    
+    
     else{
         agn=true;
     }
 
 }
 }
+public void checkUlt(){
+if(Greenfoot.isKeyDown("r")) {
+           if(UltimateCrate.readyUltimate>0){
+               Summon();
+               UltimateCrate.readyUltimate--;
+            }
+        }
+}
+public void Summon(){
+     Hyper H = new Hyper();
+     getWorld().addObject (H, 300 ,595 );
+    
+    }
+
 public void Semi(){
     agn = true;
     if(time/60==rate){
@@ -85,7 +107,8 @@ public void Semi(){
 public void gameover(){
              if(isTouching(Boss.class)){  //isAtEdge()
             Greenfoot.setWorld(new GameO());
-            }
-        }
+            
+}
+}
 }
 

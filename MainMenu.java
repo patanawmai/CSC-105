@@ -30,7 +30,7 @@ public class MainMenu extends World
     }
     
     public void sound(){
-        Greenfoot.playSound("Intro.wav");
+        //Greenfoot.playSound("Intro.wav");
     }
    
 }

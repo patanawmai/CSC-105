@@ -14,10 +14,10 @@ public class Enemy extends Actor
      */
     int spd;
     int dwn;
-    int hp;
+     int hp;
     int count = 0;
       public Enemy(){
-      this(2,10,1);
+      this(2,40,1); //2 50
     }
     public Enemy(int spd,int dwn,int hp){
         this.spd = spd;
@@ -26,10 +26,17 @@ public class Enemy extends Actor
     }
     public void act() 
     {
+        gameover();
             hit();
+            
         if(count/60==1){
             spd = -spd;
+            try{
+                Gm();
             setLocation(getX(),getY()+dwn);
+        }catch(IllegalStateException e){
+            
+        }
             count=0;
         }
         else{
@@ -38,16 +45,28 @@ public class Enemy extends Actor
 
         count++;
     }    
+    public void Gm(){
+        if(getY()==600){
+             Greenfoot.setWorld(new GameO());
+        }
+    }
     public void hit(){
         if(isTouching(bullet.class)){
+            removeTouching(bullet.class);
             hp--;
         }
         if(hp<=0){
                 getWorld().removeObject(this);
-            MyWorld.count--;
+           MyWorld.count--;
            MyWorld.score++;
            }
-    }
+          
+        }
+        public void gameover(){
+             if(isAtEdge()){  //isAtEdge()
+            Greenfoot.setWorld(new GameO());
+            }
+        }
    }
 
 

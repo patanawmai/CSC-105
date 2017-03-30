@@ -26,7 +26,7 @@ public class Enemy extends Actor
     }
     public void act() 
     {
-        gameover();
+        //deduct();
             hit();
             
         if(count/60==1){
@@ -46,10 +46,19 @@ public class Enemy extends Actor
         count++;
     }    
     public void Gm(){
-        if(getY()==600){
+        /*if(getY()==600){
              Greenfoot.setWorld(new GameO());
-        }
+        }*/
     }
+    public void deduct(){
+             /*if(isAtEdge()){  //isAtEdge()
+                 getWorld().removeObject(this);
+             MyWorld.shipLife --;
+             StageN.shipLife --;
+             hp=0;
+             //getWorld().removeObject(this);*/
+            }
+        
     public void hit(){
         if(isTouching(bullet.class)){
             removeTouching(bullet.class);
@@ -60,13 +69,19 @@ public class Enemy extends Actor
            MyWorld.count--;
            MyWorld.score++;
            }
+           
           
         }
-        public void gameover(){
+       /* public void deduct(){
              if(isAtEdge()){  //isAtEdge()
-            Greenfoot.setWorld(new GameO());
+                 
+             MyWorld.shipLife --;
+             StageN.shipLife --;
+             hp==0;
+             getWorld().removeObject(this);
             }
-        }
-   }
+        }*/
+    }
+    
 
 
