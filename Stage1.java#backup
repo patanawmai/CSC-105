@@ -13,6 +13,7 @@ public class Stage1 extends World
      * Constructor for objects of class Stage1.
      * 
      */
+      static int counnt;
      static int timme  ;
      ship x ;
      int a;
@@ -20,8 +21,6 @@ public class Stage1 extends World
      int c;
      int g;
      int k;
-     int y;
-     public static int shipLife;
     public Stage1(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -32,17 +31,16 @@ public class Stage1 extends World
          addObject(x = new ship(),300,550);
          addObject(new Restart(),580,20);
          addObject(new re2(),580,50);
+         counnt=0;
          g = 60;
          k=60;
-         timme=3600;
+         timme=300;
          addEn();
-         shipLife = 1;
     }
     public void act(){
            showText("Your score : "+MyWorld.score,70,590);
              showText("Time : "+(timme/60),50,570);
                 showText("Level : "+2,50,20);
-                showText("LIFE = "+(shipLife),(410),(35)) ;
              Timer();
       
         
@@ -68,28 +66,15 @@ public class Stage1 extends World
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
             addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+                 counnt+=3;
             k=0;
         }
-         if(g>=270){
-         y = Greenfoot.getRandomNumber(4);
-            
-            if(y==1){
-                addObject(new UltimateCrate(),Greenfoot.getRandomNumber(400)+20,30);
-            }
-            if(y==2){
-                addObject(new healCrate(),Greenfoot.getRandomNumber(400)+20,30);
-            }
-            if(y==3){
-                addObject(new deadCrate(),Greenfoot.getRandomNumber(400)+20,30);
-            }
-            g=0;
-        }
         k++;
-        g++;
+        //g++;
     }
     else {
           k=0;
-        if(getObjects(Enemy.class).isEmpty()){
+        if(counnt==0){
            x.count = 2; 
             x.go = true;
     }
@@ -101,6 +86,7 @@ public class Stage1 extends World
              for(int i=1;i<=5;i++){
              for(int k =1;k<=2;k++){
                  addObject(new Enemy(a,b,c),i*70,k*30);
+                 counnt++;
                 }
             }
     }

@@ -24,7 +24,7 @@ public class MainMenu extends World
           addObject( new hard(),300,440);
           addObject( new how(),300,520);
           
-          sound();
+          //sound();
          
          int x=0;
     }
