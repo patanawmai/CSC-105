@@ -18,18 +18,21 @@ public class healCrate extends Actor
        /* if(isAtEdge()){
          getWorld().removeObject(this);
         }*/
-        out();
+   
         getImage().scale(60,60);
     effect();
+         
     }    
     public void effect(){
-     Actor S = getOneIntersectingObject(ship.class);
-     if(S!=null){
+         if(isTouching(ship.class)){
          getWorld().removeObject(this);
         MyWorld.shipLife ++;
         Stage1.shipLife ++;
-        
         }
+         else {
+            out();
+        }
+        
      
     }   
      public void out(){

@@ -20,22 +20,28 @@ public class UltimateCrate extends Actor
         /*if(isAtEdge()){
          getWorld().removeObject(this);
         }*/
-        out();
+       
         
         getImage().scale(60,60);
         effect();
-        
+       
     }    
     public void effect(){
-     Actor S = getOneIntersectingObject(ship.class);
-     if(S!=null){
+        if(isTouching(ship.class)){
          getWorld().removeObject(this);
+        
+        
         ultimateFragment++;
+    }
         if(ultimateFragment==3){
             readyUltimate++;
              ultimateFragment=0;
         }
+        else {
+            out();
         }
+    
+        
      
     }
      public void out(){
