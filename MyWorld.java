@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Color;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -13,14 +13,17 @@ public class MyWorld extends World
      * Constructor for objects of class MyWorld.
      * 
      */
-    static int count;
      static int score;
      static int time  ;
-     boolean go = false;
-     ship x ;
+     static ship x ;
      int a;
      int b;
      int c;
+     int k;
+      int g;
+     int y;
+     public static int shipLife;
+     GreenfootImage bg = getBackground();
     public MyWorld(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -31,41 +34,86 @@ public class MyWorld extends World
          addObject(x = new ship(),300,550);
          addObject(new Restart(),580,20);
          addObject(new re1(),580,50);
-         count=0;
          score=0;
-         time=0;
+         time=3600;
          addEn();
+          k=60;
+          g=60;
+         shipLife = 2;
     }
     public void act(){
-           showText("Your score : "+score,70,590);
-             showText("Time : "+(60-(time/60)),50,570);
+           
+           bg.drawImage( new GreenfootImage( " Score: "+ MyWorld.score , 24, Color.ORANGE, Color.BLACK, Color.BLACK), 5, 470 );;
+             showText("Time : "+(time/60),50,570);
                 showText("Level : "+1,50,20);
-             Timer();
-        if(count==0&&time/60!=60){
-            addEn();
-        }
+               showText("LIFE = "+(shipLife),(410),(35)) ;
+                showText("HyperBeam = "+(UltimateCrate.readyUltimate),(410),(60)) ;
+                gameover2();
+                Timer();
+        
+       
+        
      
 }
  
-    public void Timer(){
-        if(time/60==60&&count==0){
-            x.go = true;
-            //Greenfoot.setWorld(new win());
-    }
-    else{
-        if(time/60!=60){
-            time++;  
+      public void Timer(){
+
+        if(time/60>0){
+            time--;  
+        
+        /*if(g>=620){
+            
+            addEn();
+          g=0;  
+        }*/
+         if(getObjects(Enemy.class).isEmpty()){
+            
+            addEn();
+            
         }
-          
+        if(k>=90){
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+            k=0;
+        }
+        if(g>=270){
+         y = Greenfoot.getRandomNumber(4);
+            
+            if(y==1){
+                addObject(new UltimateCrate(),Greenfoot.getRandomNumber(400)+20,30); //UltimateCrate
+            }
+            if(y==2){
+                addObject(new healCrate(),Greenfoot.getRandomNumber(400)+20,30); //healCrate
+            }
+            if(y==3){
+                addObject(new deadCrate(),Greenfoot.getRandomNumber(400)+20,30);
+            }
+            g=0;
+        }
+        k++;
+        g++;
     }
+    else {
+          k=0;
+        if(getObjects(Enemy.class).isEmpty()){
+      x.count = 1;
+            x.go = true;
+    }
+}
+    
     }
     public  void addEn(){
              for(int i=1;i<=4;i++){
              for(int k =1;k<=4;k++){
                  addObject(new Enemy(a,b,c),i*70,k*30);
-                 count++;
                 }
             }
     }
-     
+      public void gameover2(){
+            if(shipLife==0){ 
+            Greenfoot.setWorld(new GameO());
+        }
+}
+ 
 }

@@ -14,6 +14,7 @@ public class Stage2 extends World
      * 
      */
     static int hp;
+    int k;
     public Stage2()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -21,7 +22,6 @@ public class Stage2 extends World
          addObject(new ship(),300,550);
          addObject(new Restart(),580,20);
          addObject(new re3(),580,50);
-          MyWorld.count=0;
          // MyWorld.score =0;
          addObject(new Boss(),getWidth()/2,0);
          
@@ -34,6 +34,12 @@ public class Stage2 extends World
     public void End(){
          if(getObjects(Boss.class).isEmpty()){
            Greenfoot.setWorld(new win());
+    }else if(k>=90){
+         addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+         addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+         addObject(new Enemy(),Greenfoot.getRandomNumber(400)+20,30);
+         k=0;
     }
+    k++;
     }
 }

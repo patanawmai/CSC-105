@@ -18,13 +18,15 @@ public class ship extends Actor
     boolean agn = false;
     boolean con= true;
     boolean go = false;
-    
-    public ship(){
+     int count;
+     public static int shipLife;
+   public ship(){
       
     }
-    public void act() 
+     public void act() 
     {
         gameover();
+       // gameover2();
         if(go){
             if(con){
                 setLocation(512,600); 
@@ -32,27 +34,24 @@ public class ship extends Actor
             con=false;
             setLocation(getX(),getY()-10); 
             if(isAtEdge()){
-                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
-                go=false;
+                if(count==1){
+                Greenfoot.setWorld(new Stage1(2,30,1));   
+            }//ไปด่านอื่น
+               if(count==2){
+                Greenfoot.setWorld(new Stage2()); 
+            }
+                    go=false;
+              
             }
         }
         Move();
+        checkUlt();
+        warp();
         //shipone();
         //shiptwo();
         // Add your action code here.
     }  
-   /* public void shipone(){
-        if(isAtEdge()){
-                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
-                go=false;
-    }
-}
- public void shiptwo(){
-        if(isAtEdge()){
-                Greenfoot.setWorld(new Stage2()); //ไปด่านอื่น
-                go=false;
-    }
-}*/
+   
     public void Move(){
         if(con){
         if(Greenfoot.isKeyDown("right")){
@@ -74,6 +73,19 @@ public class ship extends Actor
 
 }
 }
+public void checkUlt(){
+if(Greenfoot.isKeyDown("r")) {
+           if(UltimateCrate.readyUltimate>0){
+               Summon();
+               UltimateCrate.readyUltimate--;
+            }
+        }
+}
+public void Summon(){
+     Hyper H = new Hyper();
+     getWorld().addObject (H, 300 ,595 );
+    
+    }
 public void Semi(){
     agn = true;
     if(time/60==rate){
@@ -87,5 +99,19 @@ public void gameover(){
             Greenfoot.setWorld(new GameO());
             }
         }
+        public void gameover2(){
+            if(shipLife==0){ 
+            Greenfoot.setWorld(new GameO());
+        }
 }
-
+public void warp(){
+    int y =this.getY();
+    int x =this.getX();
+    if(this.getX()==getWorld().getWidth()-1){
+        setLocation(0,y);
+    }
+    if(x==0){
+        setLocation(getWorld().getWidth()-1,y);
+    }
+}
+}

@@ -26,9 +26,9 @@ public class Enemy extends Actor
     }
     public void act() 
     {
-        gameover();
+       gameover();
             hit();
-            
+          //  decreaseship();
         if(count/60==1){
             spd = -spd;
             try{
@@ -57,7 +57,6 @@ public class Enemy extends Actor
         }
         if(hp<=0){
                 getWorld().removeObject(this);
-           MyWorld.count--;
            MyWorld.score++;
            }
           
@@ -67,6 +66,12 @@ public class Enemy extends Actor
             Greenfoot.setWorld(new GameO());
             }
         }
+        /*public void decreaseship(){
+             if(isTouching(ship.class)){  //isAtEdge()
+              MyWorld.shipLife --;
+              Stage1.shipLife --;
+            }
+        }*/
    }
 
 
