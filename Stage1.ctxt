@@ -9,4 +9,6 @@ comment3.params=
 comment3.target=void\ Timer()
 comment4.params=
 comment4.target=void\ addEn()
-numComments=5
+comment5.params=
+comment5.target=void\ gameover2()
+numComments=6

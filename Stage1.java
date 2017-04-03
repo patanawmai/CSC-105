@@ -1,4 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import java.awt.Color;
 
 /**
  * Write a description of class Stage1 here.
@@ -22,6 +23,8 @@ public class Stage1 extends World
      int k;
      int y;
      public static int shipLife;
+      GreenfootImage bg = getBackground();
+      //Hyper h = new Hyper();
     public Stage1(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -37,14 +40,21 @@ public class Stage1 extends World
          timme=3600;
          addEn();
          shipLife = 1;
+         
     }
     public void act(){
-           showText("Your score : "+MyWorld.score,70,590);
-             showText("Time : "+(timme/60),50,570);
+           bg.drawImage( new GreenfootImage( " Score: "+ MyWorld.score , 24, Color.GREEN, Color.BLACK, Color.BLACK), 5, 470 );
+             showText("Time : "+(timme/60),50,550);
                 showText("Level : "+2,50,20);
                 showText("LIFE = "+(shipLife),(410),(35)) ;
+                showText("HyperBeam = "+(UltimateCrate.readyUltimate),(410),(60)) ;
              Timer();
-      
+             gameover2();
+             
+           /* if(getObject!=null&&null
+             if(h.getY() < 10){
+                removeObject(h);
+            }*/
         
      
 }
@@ -104,6 +114,12 @@ public class Stage1 extends World
                 }
             }
     }
+     public void gameover2(){
+            if(shipLife==0){ 
+            Greenfoot.setWorld(new GameO());
+        }
+}
+   
 }
 
      

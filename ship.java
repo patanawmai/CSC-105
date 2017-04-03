@@ -46,23 +46,12 @@ public class ship extends Actor
         }
         Move();
         checkUlt();
-        
+        warp();
         //shipone();
         //shiptwo();
         // Add your action code here.
     }  
-   /* public void shipone(){
-        if(isAtEdge()){
-                Greenfoot.setWorld(new Stage1(2,30,1)); //ไปด่านอื่น
-                go=false;
-    }
-}
- public void shiptwo(){
-        if(isAtEdge()){
-                Greenfoot.setWorld(new Stage2()); //ไปด่านอื่น
-                go=false;
-    }
-}*/
+   
     public void Move(){
         if(con){
         if(Greenfoot.isKeyDown("right")){
@@ -114,5 +103,15 @@ public void gameover(){
             if(shipLife==0){ 
             Greenfoot.setWorld(new GameO());
         }
+}
+public void warp(){
+    int y =this.getY();
+    int x =this.getX();
+    if(this.getX()==getWorld().getWidth()-1){
+        setLocation(0,y);
+    }
+    if(x==0){
+        setLocation(getWorld().getWidth()-1,y);
+    }
 }
 }

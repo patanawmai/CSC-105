@@ -7,7 +7,6 @@ comment2.params=
 comment2.target=void\ act()
 comment3.params=
 comment3.target=void\ Move()
-comment3.text=\ public\ void\ shipone(){\r\n\ \ \ \ \ \ \ \ if(isAtEdge()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Greenfoot.setWorld(new\ Stage1(2,30,1));\ //\u0E44\u0E1B\u0E14\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ go\=false;\r\n\ \ \ \ }\r\n}\r\n\ public\ void\ shiptwo(){\r\n\ \ \ \ \ \ \ \ if(isAtEdge()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Greenfoot.setWorld(new\ Stage2());\ //\u0E44\u0E1B\u0E14\u0E48\u0E32\u0E19\u0E2D\u0E37\u0E48\u0E19\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ go\=false;\r\n\ \ \ \ }\r\n}
 comment4.params=
 comment4.target=void\ checkUlt()
 comment5.params=
@@ -18,4 +17,6 @@ comment7.params=
 comment7.target=void\ gameover()
 comment8.params=
 comment8.target=void\ gameover2()
-numComments=9
+comment9.params=
+comment9.target=void\ warp()
+numComments=10

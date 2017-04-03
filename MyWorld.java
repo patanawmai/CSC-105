@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.awt.Color;
 /**
  * Write a description of class MyWorld here.
  * 
@@ -23,6 +23,7 @@ public class MyWorld extends World
       int g;
      int y;
      public static int shipLife;
+     GreenfootImage bg = getBackground();
     public MyWorld(int a,int b,int c)
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
@@ -41,7 +42,8 @@ public class MyWorld extends World
          shipLife = 2;
     }
     public void act(){
-           showText("Your score : "+score,70,590);
+           
+           bg.drawImage( new GreenfootImage( " Score: "+ MyWorld.score , 24, Color.ORANGE, Color.BLACK, Color.BLACK), 5, 470 );;
              showText("Time : "+(time/60),50,570);
                 showText("Level : "+1,50,20);
                showText("LIFE = "+(shipLife),(410),(35)) ;
@@ -113,10 +115,5 @@ public class MyWorld extends World
             Greenfoot.setWorld(new GameO());
         }
 }
- /* public void decreaseship(){
-             if(isTouching(ship.class)){  //isAtEdge()
-              MyWorld.shipLife --;
-              Stage1.shipLife --;
-            }
-        }*/
+ 
 }

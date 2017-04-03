@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class UltimateCrate extends Actor
  
 {   public static int ultimateFragment=0;
-    public static int readyUltimate = 0;
+    public static int readyUltimate = 1;
     /**
      * Act - do whatever the UltimateCrate wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -27,12 +27,7 @@ public class UltimateCrate extends Actor
        
     }    
     public void effect(){
-        if(isTouching(ship.class)){
-         getWorld().removeObject(this);
-        
-        
-        ultimateFragment++;
-    }
+     
         if(ultimateFragment==3){
             readyUltimate++;
              ultimateFragment=0;
@@ -48,5 +43,11 @@ public class UltimateCrate extends Actor
          if(isAtEdge()){
          getWorld().removeObject(this);
         }
+        else    if(isTouching(ship.class)){
+         getWorld().removeObject(this);
+        
+        
+        ultimateFragment++;
+    }
     }
 }
